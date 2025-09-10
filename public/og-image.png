@@ -1,0 +1,19 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Penny the Pig Icon based on the mascot -->
+  <circle cx="32" cy="32" r="28" fill="#FFB3DA" stroke="#E35C4A" stroke-width="2"/>
+  <!-- Pig snout -->
+  <ellipse cx="32" cy="38" rx="6" ry="4" fill="#FF8FAB"/>
+  <!-- Nostrils -->
+  <circle cx="30" cy="37" r="1" fill="#E35C4A"/>
+  <circle cx="34" cy="37" r="1" fill="#E35C4A"/>
+  <!-- Eyes -->
+  <circle cx="26" cy="28" r="2" fill="#2C2C2C"/>
+  <circle cx="38" cy="28" r="2" fill="#2C2C2C"/>
+  <!-- Ears -->
+  <ellipse cx="22" cy="22" rx="3" ry="6" fill="#FFB3DA" stroke="#E35C4A" stroke-width="1"/>
+  <ellipse cx="42" cy="22" rx="3" ry="6" fill="#FFB3DA" stroke="#E35C4A" stroke-width="1"/>
+  <!-- Flower on head -->
+  <circle cx="32" cy="18" r="4" fill="#20B2AA"/>
+  <circle cx="28" cy="16" r="2" fill="#FF6347"/>
+  <circle cx="36" cy="16" r="2" fill="#FFD700"/>
+</svg>

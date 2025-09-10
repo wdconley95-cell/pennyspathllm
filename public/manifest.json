@@ -1,0 +1,28 @@
+{
+  "name": "Penny's Path - AI Career Coaching",
+  "short_name": "Penny's Path",
+  "description": "Your friendly AI career coach powered by advanced language models",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F7F4F2",
+  "theme_color": "#E35C4A",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/icon.svg", 
+      "type": "image/svg+xml",
+      "sizes": "any"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
