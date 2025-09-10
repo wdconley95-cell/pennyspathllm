@@ -68,7 +68,7 @@ export async function POST(request: NextRequest) {
     // Generate speech
     const audioBuffer = await generateSpeech(body.text, body.voice || 'nova')
     
-    const response = new NextResponse(audioBuffer, {
+    const response = new NextResponse(audioBuffer.buffer, {
       headers: {
         'Content-Type': 'audio/mpeg',
         'Content-Length': audioBuffer.length.toString(),
