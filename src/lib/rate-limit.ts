@@ -161,6 +161,6 @@ export function cleanupOldBuckets() {
 }
 
 // Clean up old buckets every hour
-if (typeof globalThis !== 'undefined' && globalThis.setInterval) {
-  setInterval(cleanupOldBuckets, 60 * 60 * 1000)
+if (typeof globalThis !== 'undefined' && typeof globalThis.setInterval === 'function') {
+  globalThis.setInterval(cleanupOldBuckets, 60 * 60 * 1000)
 }
