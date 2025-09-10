@@ -131,9 +131,13 @@ export function Chat() {
         const lines = chunk.split('\n')
 
         for (const line of lines) {
-          if (line.startsWith('data: ')) {
+          const trimmedLine = line.trim()
+          if (trimmedLine.startsWith('data: ')) {
             try {
-              const data = JSON.parse(line.slice(6))
+              const jsonData = trimmedLine.slice(6).trim()
+              if (!jsonData) continue // Skip empty data lines
+              
+              const data = JSON.parse(jsonData)
               
               if (data.error) {
                 throw new Error(data.error)
@@ -160,7 +164,8 @@ export function Chat() {
                 return
               }
             } catch (parseError) {
-              console.warn('Failed to parse SSE data:', line)
+              console.warn('Failed to parse SSE data:', trimmedLine)
+              // Don't append unparseable data to content
             }
           }
         }
