@@ -238,3 +238,4 @@ export function handleOpenAIError(error: any): OpenAIError {
   
   return new OpenAIError(error.message || 'An unexpected error occurred.', error.status)
 }
+// Deployment fix Wed Sep 10 17:08:47 MDT 2025
