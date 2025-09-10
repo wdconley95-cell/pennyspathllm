@@ -84,8 +84,9 @@ export function Chat() {
       addMessage(streamingMessage)
       setIsStreaming(true)
 
-      // Prepare API request
-      const apiMessages = formatMessagesForAPI([...messages, userMessage])
+      // Prepare API request - use updated messages from store
+      const currentMessages = useChatStore.getState().messages
+      const apiMessages = formatMessagesForAPI(currentMessages.slice(0, -1)) // Exclude the streaming message
       const requestBody = {
         messages: apiMessages,
         personaId: currentPersona.id,
