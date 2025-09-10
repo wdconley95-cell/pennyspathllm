@@ -1,0 +1,5 @@
+tests/
+*.test.ts
+*.test.tsx
+.env.example
+README.md

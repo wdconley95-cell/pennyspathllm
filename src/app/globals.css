@@ -1,0 +1,200 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Base theme colors */
+  --background: 45 15% 97%; /* sand-50 */
+  --foreground: 0 0% 17%; /* ink-900 */
+  --card: 44 20% 93%; /* stone-50 */
+  --card-foreground: 0 0% 17%; /* ink-900 */
+  --popover: 45 15% 97%; /* sand-50 */
+  --popover-foreground: 0 0% 17%; /* ink-900 */
+  --primary: 9 72% 58%; /* brand-500 */
+  --primary-foreground: 45 15% 97%; /* sand-50 */
+  --secondary: 44 15% 91%; /* stone-200 */
+  --secondary-foreground: 0 0% 32%; /* ink-700 */
+  --muted: 44 15% 91%; /* stone-200 */
+  --muted-foreground: 0 0% 45%; /* ink-600 */
+  --accent: 44 15% 91%; /* stone-200 */
+  --accent-foreground: 0 0% 32%; /* ink-700 */
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 45 15% 97%;
+  --border: 44 15% 85%; /* stone-300 */
+  --input: 44 15% 85%; /* stone-300 */
+  --ring: 9 72% 58%; /* brand-500 */
+  --radius: 1rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: 0 0% 17%; /* ink-900 */
+    --foreground: 45 15% 97%; /* sand-50 */
+    --card: 0 0% 27%; /* ink-700 */
+    --card-foreground: 45 15% 97%; /* sand-50 */
+    --popover: 0 0% 17%; /* ink-900 */
+    --popover-foreground: 45 15% 97%; /* sand-50 */
+    --primary: 9 72% 58%; /* brand-500 */
+    --primary-foreground: 45 15% 97%; /* sand-50 */
+    --secondary: 0 0% 32%; /* ink-700 */
+    --secondary-foreground: 45 15% 97%; /* sand-50 */
+    --muted: 0 0% 32%; /* ink-700 */
+    --muted-foreground: 0 0% 64%; /* ink-400 */
+    --accent: 0 0% 32%; /* ink-700 */
+    --accent-foreground: 45 15% 97%; /* sand-50 */
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 45 15% 97%;
+    --border: 0 0% 32%; /* ink-700 */
+    --input: 0 0% 32%; /* ink-700 */
+    --ring: 9 72% 58%; /* brand-500 */
+  }
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  color: hsl(var(--foreground));
+  background: hsl(var(--background));
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+/* Custom utility classes */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .animation-delay-75 {
+    animation-delay: 75ms;
+  }
+  
+  .animation-delay-150 {
+    animation-delay: 150ms;
+  }
+  
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
+
+/* Focus styles for accessibility */
+.focus-visible:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Chat message animations */
+.message-appear {
+  animation: fade-in 0.3s ease-out;
+}
+
+.typing-indicator {
+  animation: pulse-glow 1.5s ease-in-out infinite;
+}
+
+/* Voice recording styles */
+.recording-pulse {
+  animation: pulse-glow 1s ease-in-out infinite;
+}
+
+.vu-meter {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--primary)) 0%,
+    hsl(var(--primary) / 0.8) 60%,
+    hsl(var(--primary) / 0.4) 100%
+  );
+  transition: width 0.1s ease-out;
+}
+
+/* Markdown content styling */
+.prose {
+  color: hsl(var(--foreground));
+  max-width: none;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  color: hsl(var(--foreground));
+  font-weight: 600;
+}
+
+.prose code {
+  background: hsl(var(--muted));
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+}
+
+.prose pre {
+  background: hsl(var(--muted));
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.5rem;
+}
+
+.prose pre code {
+  background: transparent;
+  padding: 0;
+}
+
+.prose blockquote {
+  border-left: 4px solid hsl(var(--primary));
+  padding-left: 1rem;
+  font-style: italic;
+  color: hsl(var(--muted-foreground));
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.5rem;
+}
+
+.prose li {
+  margin: 0.25rem 0;
+}
+
+.prose a {
+  color: hsl(var(--primary));
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.prose a:hover {
+  text-decoration: none;
+}
