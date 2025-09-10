@@ -24,6 +24,11 @@ export default function HomePage() {
   
   const { voice, messages } = useChatStore()
 
+  // Add error boundary for hydration issues
+  if (typeof window === 'undefined') {
+    return <div>Loading...</div>
+  }
+
   return (
     <>
       {/* Sidebar */}
