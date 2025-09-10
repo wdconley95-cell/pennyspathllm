@@ -153,11 +153,11 @@ export function cleanupOldBuckets() {
   const now = Date.now()
   const maxAge = 24 * 60 * 60 * 1000 // 24 hours
   
-  for (const [key, bucket] of buckets.entries()) {
+  Array.from(buckets.entries()).forEach(([key, bucket]) => {
     if (now - bucket.lastRefill > maxAge) {
       buckets.delete(key)
     }
-  }
+  })
 }
 
 // Clean up old buckets every hour
