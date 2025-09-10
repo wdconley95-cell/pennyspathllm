@@ -117,8 +117,8 @@ export function Chat() {
       let streamingMessageId = ''
 
       // Find the streaming message ID
-      const currentMessages = useChatStore.getState().messages
-      const lastMessage = currentMessages[currentMessages.length - 1]
+      const allMessages = useChatStore.getState().messages
+      const lastMessage = allMessages[allMessages.length - 1]
       if (lastMessage?.isStreaming) {
         streamingMessageId = lastMessage.id
       }
