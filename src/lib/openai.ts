@@ -119,7 +119,7 @@ export async function transcribeAudio(audioBuffer: Buffer): Promise<string> {
   const openai = createOpenAIClient()
   
   // Create a File-like object from the buffer
-  const audioFile = new File([audioBuffer], 'audio.wav', { type: 'audio/wav' })
+  const audioFile = new File([new Uint8Array(audioBuffer)], 'audio.wav', { type: 'audio/wav' })
   
   const transcription = await openai.audio.transcriptions.create({
     file: audioFile,
