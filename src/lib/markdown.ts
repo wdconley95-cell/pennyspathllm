@@ -146,8 +146,8 @@ export function extractMentions(text: string): {
   const hashtags = Array.from(text.matchAll(/#(\w+)/g), m => m[1])
   
   return {
-    mentions: [...new Set(mentions)], // Remove duplicates
-    hashtags: [...new Set(hashtags)]
+    mentions: Array.from(new Set(mentions)), // Remove duplicates
+    hashtags: Array.from(new Set(hashtags))
   }
 }
 
