@@ -223,8 +223,10 @@ function EmptyState() {
                 variant="outline"
                 className="p-4 h-auto text-left justify-start hover:bg-brand/5 hover:border-brand/30"
                 onClick={() => {
-                  // This will be implemented in the Chat component
-                  console.log('Send prompt:', prompt)
+                  // Send the prompt as a message
+                  const { addMessage } = useChatStore.getState()
+                  const userMessage = { role: 'user' as const, content: prompt }
+                  addMessage(userMessage)
                 }}
               >
                 <div className="flex items-center gap-3">
