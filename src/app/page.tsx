@@ -8,7 +8,7 @@ import { SettingsSheet } from '@/components/SettingsSheet'
 import { PennyMark } from '@/components/icons/PennyMark'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
-import { useUIStore, useChatStore } from '@/lib/store'
+import { useUIStore, useChatStore, createUserMessage } from '@/lib/store'
 import { cn } from '@/lib/utils'
 import { Menu, Settings, Mic, MicOff, Sparkles } from 'lucide-react'
 
@@ -225,7 +225,7 @@ function EmptyState() {
                 onClick={() => {
                   // Send the prompt as a message
                   const { addMessage } = useChatStore.getState()
-                  const userMessage = { role: 'user' as const, content: prompt }
+                  const userMessage = createUserMessage(prompt)
                   addMessage(userMessage)
                 }}
               >
